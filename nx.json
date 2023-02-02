@@ -1,0 +1,44 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "toptal",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
+  },
+  "defaultProject": "server",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "styled-jsx",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "styled-jsx"
+      },
+      "library": {
+        "style": "styled-jsx",
+        "linter": "eslint"
+      }
+    }
+  }
+}
